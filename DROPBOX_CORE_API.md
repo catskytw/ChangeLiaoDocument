@@ -34,7 +34,7 @@ if(![[DBSession sharedSession] isLinked]){
   - Project Navigation -> TARGETS(選擇你要build 的target) -> Info -> URL type
   - 新增一筆
   - URL schemes 加入 db-yourAppKey(yourAppKey 請置換成申請時給予的app key)
-  - 如下圖
+  - 如下圖![](https://raw.githubusercontent.com/catskytw/ChangeLiaoDocument/master/dropboxURLType.jpg)
   
 - 建立一個DBClient, 檔案以及目錄的操作都要依靠DBClient
 ```objective-c
@@ -51,5 +51,6 @@ if(![[DBSession sharedSession] isLinked]){
     //下載
     [dropboxClient loadFile:@"yourFile" intoPath:@"detinationFile"];
 ```
+
 - 其他檔案操作(e.g. cancelUpload, thumbnail, createFolder, moveFrom..)請參閱 `DBRestClient.h`
   

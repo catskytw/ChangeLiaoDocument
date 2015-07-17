@@ -52,5 +52,16 @@ if(![[DBSession sharedSession] isLinked]){
     [dropboxClient loadFile:@"yourFile" intoPath:@"detinationFile"];
 ```
 
+```objective-c
+- (void)restClient:(DBRestClient *)client loadedFile:(NSString *)localPath
+    contentType:(NSString *)contentType metadata:(DBMetadata *)metadata {
+    NSLog(@"File loaded into path: %@", localPath);
+}
+
+- (void)restClient:(DBRestClient *)client loadFileFailedWithError:(NSError *)error {
+    NSLog(@"There was an error loading the file: %@", error);
+}
+```
+
 - 其他檔案操作(e.g. cancelUpload, thumbnail, createFolder, moveFrom..)請參閱 `DBRestClient.h`
   

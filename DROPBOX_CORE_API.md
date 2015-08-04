@@ -1,3 +1,4 @@
+# Dropbox Framework Basic Operations
 - 下載Dropbox Core SDK (<https://www.dropbox.com/developers/reference/sdk>)
 
 - 使用公司(或你自己的)dropbox 帳號, 在app console建立一個app
@@ -65,3 +66,12 @@ if(![[DBSession sharedSession] isLinked]){
 
 - 其他檔案操作(e.g. cancelUpload, thumbnail, createFolder, moveFrom..)請參閱 `DBRestClient.h`
   
+  
+  
+# BiasFX 的Dropbox Backup/Restore
+- Setting Table 裡加入Dropbox 選單。Setting Table 選擇是依據Apple  [Settings Application Schema](https://developer.apple.com/library/ios/documentation/PreferenceSettings/Conceptual/SettingsApplicationSchemaReference/Introduction/Introduction.html) 完成。 
+
+- Preset 的Backup: 所有Preset 均放在`~/Document/Preset/{bank_name}/Preset.{sequential_number}.iTonesPreset` 來存放。將`~/Document/Preset` 一併壓縮上傳到Dropbox, 命名為 `tmp_presetBackup.zip`
+
+- Bank Table 的資料是儲存在`[NSUserDefaults standardUserDefaults]` 內，key值為 `SoundFlow.Preset.Tab.{sequential_number}.BankName`， value 是 `{BankName}` (e.g. Factory, User...)
+

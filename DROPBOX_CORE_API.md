@@ -73,5 +73,8 @@ if(![[DBSession sharedSession] isLinked]){
 
 - Preset 的Backup: 所有Preset 均放在`~/Document/Preset/{bank_name}/Preset.{sequential_number}.iTonesPreset` 來存放。將`~/Document/Preset` 一併壓縮上傳到Dropbox, 命名為 `tmp_presetBackup.zip`
 
-- Bank Table 的資料是儲存在`[NSUserDefaults standardUserDefaults]` 內，key值為 `SoundFlow.Preset.Tab.{sequential_number}.BankName`， value 是 `{BankName}` (e.g. Factory, User...)
+- Bank Table:
+  - Bank Table 的資料是儲存在`[NSUserDefaults standardUserDefaults]` 內，key值為 `SoundFlow.Preset.Tab.{sequential_number}.BankName`， value 是 `{BankName}` (e.g. Factory, User...)
 
+  - 由於需要在restore 時，一併將Bank 回復，因此上述的值取出另存於一 `NSMutableDictionary` 後，寫回一個檔案名為 `PresetBankList`，此檔案亦一併存入 `tmp_presetBackup.zip` 。
+下圖是tmp_presetBackup.zip 解開之範例。
